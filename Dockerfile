@@ -35,4 +35,4 @@ RUN tar -xzvf 20news-bydate.tar.gz
 
 RUN ls -l /opt/
 
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
