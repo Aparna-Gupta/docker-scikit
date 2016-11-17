@@ -8,7 +8,11 @@ RUN apt-get install wget build-essential git python -y
 RUN apt-get install python-pip python-dev -y
 
 RUN pip install --upgrade pip
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt
+ADD requirements.txt /tmp/requirements.txt
+#RUN pip install -r /tmp/requirements.txt
+
+RUN pip install scipy
+RUN pip install numpy
+RUN pip install scikit-learn
 
 COPY src /opt/docker-scikit
