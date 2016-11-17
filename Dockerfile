@@ -13,6 +13,6 @@ ADD requirements.txt /tmp/requirements.txt
 
 #RUN pip install scipy
 RUN pip install numpy
-#RUN pip install scikit-learn
+RUN pip install scikit-learn
 
 COPY src /opt/docker-scikit
