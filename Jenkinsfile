@@ -27,16 +27,4 @@ node {
         sh "docker login -u '${env.DOCKERHUB_USERNAME}' -p '${env.DOCKERHUB_PASSWORD}' -e demo@mesosphere.com"
         sh "docker push aparnagupta/docker-scikit:${gitCommit()}"
     }
-    
-    // Deploy
-    stage 'Deploy'
-
-    marathon(
-        url: 'http://marathon.mesos:8080',
-        forceUpdate: false,
-        credentialsId: 'dcos-token',
-        filename: 'marathon.json',
-        appid: 'docker-scikit',
-        docker: "aparnagupta/docker-scikit:${gitCommit()}".toString()
-    )
-}
+  }
