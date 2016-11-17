@@ -17,22 +17,22 @@ RUN apt-get install -y wget \
     && rm -rf /var/lib/apt/lists/*
 
 #ADD http://people.csail.mit.edu/jrennie/20Newsgroups/20news-bydate.tar.gz /tmp/
-RUN wget http://people.csail.mit.edu/jrennie/20Newsgroups/20news-bydate.tar.gz -O /tmp/20news-bydate.tar.gz 
+RUN wget http://people.csail.mit.edu/jrennie/20Newsgroups/20news-bydate.tar.gz -O /opt/20news-bydate.tar.gz 
 
-WORKDIR /tmp
+WORKDIR /opt
 
-RUN mkdir -p /tmp/20news-bydate/
+RUN mkdir -p /opt/20news-bydate/
 
-RUN mkdir -p /tmp/output/
+RUN mkdir -p /opt/output/
 
-RUN chmod 777 -R /tmp/
+RUN chmod 777 -R /opt/
 
-RUN mv /tmp/20news-bydate.tar.gz /tmp/20news-bydate
+RUN mv /opt/20news-bydate.tar.gz /opt/20news-bydate
 
-WORKDIR /tmp/20news-bydate
+WORKDIR /opt/20news-bydate
 
 RUN tar -xzvf 20news-bydate.tar.gz
 
-RUN ls -l /tmp/
+RUN ls -l /opt/
 
 CMD ["/bin/bash"]
